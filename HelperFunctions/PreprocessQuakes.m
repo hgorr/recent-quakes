@@ -3,7 +3,7 @@ function quakes = PreprocessQuakes(quakes)
 
 % Convert data types
 quakes.time = datetime(quakes.time,...
-    "InputFormat",'yyyy-MM-dd''T''HH:mm:ss.SSS''Z');
+    "InputFormat",'yyyy-MM-dd''T''HH:mm:ss.SSS''Z','TimeZone','UTC');
 quakes = table2timetable(quakes);
 quakes.type = categorical(quakes.type);
 quakes = convertvars(quakes,["id","place"],"string");

@@ -16,11 +16,11 @@ tfinal.Format = "dd-MMM-uuuu HH:mm:ss";
 % Read earthquake data over the time specified
 if useRecentData
     
-    daterange = "starttime="+string(tstart)+"&endtime="+string(tfinal);
+    daterng = "starttime="+string(tstart)+"&endtime="+string(tfinal);
     opts = weboptions("Timeout",25);
     try
         quakes = webread("https://earthquake.usgs.gov/fdsnws/event/1/query?format=csv&"+...
-            daterange,opts);
+            daterng,opts);
         % Convert the data types and rearrange
         quakes = PreprocessQuakes(quakes);
         
